@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microservice-architecture
+  template:
+    metadata:
+      labels:
+        app: microservice-architecture
+    spec:
+      containers:
+        - name: microservice-architecture
+          image: karchevscky/microservice-architecture:latest
+          ports:
+            - name: web
+              containerPort: 8000
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 10
+            periodSeconds: 5
