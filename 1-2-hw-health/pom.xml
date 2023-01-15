@@ -12,8 +12,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.karchevsky</groupId>
-    <artifactId>microservice-architecture</artifactId>
+    <groupId>com.karchevsky.microservice-architecture</groupId>
+    <artifactId>1-2-hw-health</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
