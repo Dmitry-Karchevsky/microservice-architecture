@@ -1,0 +1,36 @@
+config:
+  name: crud-hw3-configmap
+  port: 8000
+  ddl: validate
+secret:
+  name: crud-hw3-secret
+deployment:
+  app:
+    name: crud-hw3-deployment
+    type: NodePort
+    image: karchevscky/crud
+    port: 8000
+    replicas: 3
+  db:
+    name: crud-hw3-postresql-deployment
+    type: NodePort
+    image: postgres:14.1-alpine
+    port: 5432
+    replicas: 1
+service:
+  app:
+    name: crud-hw3-service
+    type: NodePort
+    protocol: TCP
+    port: 9000
+  db:
+    name: postgresql-service
+    host: "postgresql-service"
+    type: NodePort
+    port: 5432
+    sport: "5432"
+    dbname: crudUser
+    dbschema: public
+ingress:
+  name: crud-hw3-ingress
+  host: arch.homework

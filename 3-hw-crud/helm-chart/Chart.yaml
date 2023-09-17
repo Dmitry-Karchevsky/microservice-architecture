@@ -1,0 +1,8 @@
+apiVersion: v2
+name: 3-hw-crud
+version: 1.0.0
+description: ArchHomework
+type: application
+maintainers:
+  - name: Karchevskiy Dmitriy
+appVersion: 1.0.0
